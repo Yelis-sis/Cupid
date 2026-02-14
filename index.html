@@ -62,6 +62,20 @@
       background: #ff77aa;
       color:#fff;
     }
+    .title{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:12px;
+      margin:0 0 8px !important;
+    }
+
+    .title-gif{
+      width:34px;
+      height:34px;
+      object-fit:contain;
+      flex:0 0 auto;
+    }
 
     button:hover{ filter:brightness(.95); }
     button:active{ transform: translateY(1px); }
@@ -70,7 +84,10 @@
 
 <body>
   <div class="container">
-    <h2>Мне давно хотелось признаться...</h2>
+    <h2 class="title">
+      <span>Мне давно хотелось признаться...</span>
+      <img class="title-gif" src="https://media.tenor.com/QtY6tQ2KWcIAAAAj/hearts.gif" alt="hearts">
+    </h2>
 
     <textarea id="msg" placeholder="Введите текст"></textarea>
     <button onclick="send()">Отправить</button>
@@ -99,6 +116,7 @@ function send() {
 
 </body>
 </html>
+
 
 
 
