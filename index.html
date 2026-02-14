@@ -7,7 +7,8 @@
 
 <h2>Написать сообщение</h2>
 
-<input type="text" id="msg" placeholder="Введите текст">
+<!-- Многострочное поле -->
+<textarea id="msg" placeholder="Введите текст" rows="6" cols="50"></textarea><br>
 <button onclick="send()">Отправить</button>
 
 <script>
@@ -19,16 +20,18 @@ function send() {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
-      content: text + "\n💌💌💌" // добавляем сердечки на новую строку
+      content: text + "\n💌💌💌" // добавляем сердечки на новой строке
     })
   }).then(() => {
     alert("Отправлено");
-    document.getElementById("msg").value = ""; // очищаем поле
+    document.getElementById("msg").value = ""; // очищаем поле после отправки
   }).catch(() => alert("Ошибка отправки"));
 }
 </script>
 
 </body>
 </html>
+
+
 
 
