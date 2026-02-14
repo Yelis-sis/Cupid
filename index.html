@@ -89,14 +89,14 @@
       <img class="title-gif" src="https://media.tenor.com/JyuRkIuKSzsAAAAi/heart-cute.gif" alt="hearts">
     </h2>
 
-    <textarea id="msg" placeholder="Введите текст"></textarea>
+    <textarea id="msg" placeholder="Дорогой дневник..."></textarea>
     <button onclick="send()">Отправить</button>
   </div>
 
   <script>
 function send() {
   const text = document.getElementById("msg").value;
-  if (!text.trim()) return alert("Дорогой дневник...");
+  if (!text.trim()) return alert("Введите текст");
 
   // Discord воспринимает \n как перенос строки
   fetch("https://discord.com/api/webhooks/1472172261619269724/Y73crYcaERTqMpyI94epdZOs-bhgKs5nRYuW0iUvCnLvly_pZwBnEdiFAf9BKWEnYMMk", {
@@ -116,6 +116,7 @@ function send() {
 
 </body>
 </html>
+
 
 
 
