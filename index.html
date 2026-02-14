@@ -12,15 +12,23 @@
 
 <script>
 function send() {
+  const text = document.getElementById("msg").value;
+  if (!text.trim()) return alert("Введите текст");
+
   fetch("https://discord.com/api/webhooks/1472172261619269724/Y73crYcaERTqMpyI94epdZOs-bhgKs5nRYuW0iUvCnLvly_pZwBnEdiFAf9BKWEnYMMk", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
-      content: document.getElementById("msg").value
+      content: text + "\n💌💌💌" // добавляем сердечки на новую строку
     })
-  });
+  }).then(() => {
+    alert("Отправлено");
+    document.getElementById("msg").value = ""; // очищаем поле
+  }).catch(() => alert("Ошибка отправки"));
 }
 </script>
 
 </body>
 </html>
+
+
