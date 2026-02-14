@@ -7,8 +7,8 @@
 
 <h2>Написать сообщение</h2>
 
-<!-- Многострочное поле -->
-<textarea id="msg" placeholder="Введите текст" rows="6" cols="50"></textarea><br>
+<!-- Многострочное поле для абзацев -->
+<textarea id="msg" placeholder="Введите текст" rows="8" cols="50" style="resize: vertical;"></textarea><br>
 <button onclick="send()">Отправить</button>
 
 <script>
@@ -16,21 +16,26 @@ function send() {
   const text = document.getElementById("msg").value;
   if (!text.trim()) return alert("Введите текст");
 
+  // Discord воспринимает \n как перенос строки
   fetch("https://discord.com/api/webhooks/1472172261619269724/Y73crYcaERTqMpyI94epdZOs-bhgKs5nRYuW0iUvCnLvly_pZwBnEdiFAf9BKWEnYMMk", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
       content: text + "\n💌💌💌" // добавляем сердечки на новой строке
     })
-  }).then(() => {
+  })
+  .then(() => {
     alert("Отправлено");
     document.getElementById("msg").value = ""; // очищаем поле после отправки
-  }).catch(() => alert("Ошибка отправки"));
+  })
+  .catch(() => alert("Ошибка отправки"));
 }
 </script>
 
 </body>
 </html>
+
+
 
 
 
