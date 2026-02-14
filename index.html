@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Отправка сообщений</title>
+</head>
+<body>
+
+<h2>Написать сообщение</h2>
+
+<input type="text" id="msg" placeholder="Введите текст">
+<button onclick="send()">Отправить</button>
+
+<script>
+function send() {
+  fetch("https://discord.com/api/webhooks/1472172261619269724/Y73crYcaERTqMpyI94epdZOs-bhgKs5nRYuW0iUvCnLvly_pZwBnEdiFAf9BKWEnYMMk", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      content: document.getElementById("msg").value
+    })
+  });
+}
+</script>
+
+</body>
+</html>
